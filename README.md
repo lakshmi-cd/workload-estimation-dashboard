@@ -1,3 +1,5 @@
+## 🚀 Live Demo
+[View the live dashboard](https://lakshmi-cd.github.io/workload-estimation-dashboard/index.html)
 ## Application Details
 |               |
 | ------------- |
