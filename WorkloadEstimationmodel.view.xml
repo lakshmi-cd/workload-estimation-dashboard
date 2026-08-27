@@ -1,0 +1,90 @@
+<mvc:View controllerName="workloadestimationmodel.controller.WorkloadEstimationmodel"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page id="page" title="Workload Estimation Dashboard">
+        <content>
+
+            <Panel id="rolloutPanel" headerText="Rollout Stations" class="sapUiSmallMarginBottom">
+                <Table id="rolloutTable" items="{rollout>/Stations}">
+                    <columns>
+                        <Column id="rcol1"><Text text="Station Name"/></Column>
+                        <Column id="rcol2" hAlign="End"><Text text="Number of Switches"/></Column>
+                        <Column id="rcol3"><Text text="Size"/></Column>
+                        <Column id="rcol4" hAlign="End"><Text text="Total Days"/></Column>
+                        <Column id="rcol5" hAlign="End"><Text text="Total Hours"/></Column>
+                        <Column id="rcol6" hAlign="End"><Text text="€ / Hour"/></Column>
+                        <Column id="rcol7" hAlign="End"><Text text="Estimated Cost (€)"/></Column>
+                        <Column id="rcol8"><Text text=""/></Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem>
+                            <cells>
+                                <Input value="{rollout>Name}" placeholder="Enter station name"/>
+                                <Input type="Number" width="90px" value="{rollout>Switches}" liveChange="onSwitchesChange" placeholder="e.g. 12"/>
+                                <Text text="{rollout>Size}"/>
+                                <Text text="{rollout>TotalDays}"/>
+                                <Text text="{rollout>TotalHours}"/>
+                                <Input type="Number" width="90px" value="{rollout>EuroPerHour}" liveChange="onRateChange"/>
+                                <Text text="{rollout>EstimatedCost}"/>
+                                <Button icon="sap-icon://delete" type="Transparent" press="onRemoveStation"/>
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+
+                <Button id="addStationBtn" text="+ Add Station" type="Emphasized" press="onAddStation" class="sapUiSmallMarginTop sapUiSmallMarginBegin"/>
+
+                <VBox class="sapUiSmallMargin">
+                    <ObjectStatus title="Rollout Totals" text="Total Hours: {rollout>/totalHours}  |  Total Estimated Cost: € {rollout>/totalCost}" state="Success"/>
+                </VBox>
+            </Panel>
+
+            <Panel id="ratesPanel" headerText="Reference: Workload Hours by Station Size" class="sapUiSmallMarginBottom">
+                <Table id="workloadTable" items="{data>/Sizes}">
+                    <columns>
+                        <Column id="col1"><Text text="Station Size"/></Column>
+                        <Column id="col2" hAlign="End"><Text text="Generic Documentation"/></Column>
+                        <Column id="col3" hAlign="End"><Text text="Per Station"/></Column>
+                        <Column id="col4" hAlign="End"><Text text="Release after MAD Review"/></Column>
+                        <Column id="col5" hAlign="End"><Text text="Infra Preparation"/></Column>
+                        <Column id="col6" hAlign="End"><Text text="Review &amp; Release"/></Column>
+                        <Column id="col7" hAlign="End"><Text text="Total (Days)"/></Column>
+                        <Column id="col8" hAlign="End"><Text text="Total (Hours)"/></Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem>
+                            <cells>
+                                <Text text="{data>SizeCategory}"/>
+                                <Text text="{data>GenericDocumentation}"/>
+                                <Text text="{data>PerStation}"/>
+                                <Text text="{data>ReleaseAfterMAD}"/>
+                                <Text text="{data>InfraPreparation}"/>
+                                <Text text="{data>ReviewRelease}"/>
+                                <Text text="{data>TotalDays}"/>
+                                <Text text="{data>TotalHours}"/>
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+            </Panel>
+
+            <Panel id="legendPanel" headerText="Station Size Classification (based on number of switches)" class="sapUiSmallMarginTop">
+                <Table id="legendTable" items="{data>/SizeLogic}">
+                    <columns>
+                        <Column id="lcol1"><Text text="Size"/></Column>
+                        <Column id="lcol2"><Text text="Switch Count Range"/></Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem>
+                            <cells>
+                                <Text text="{data>SizeCategory}"/>
+                                <Text text="{data>SwitchRange}"/>
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+            </Panel>
+
+        </content>
+    </Page>
+</mvc:View>

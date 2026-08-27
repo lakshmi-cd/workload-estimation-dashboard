@@ -1,0 +1,98 @@
+{
+  "_version": "1.86.0",
+  "sap.app": {
+    "id": "workloadestimationmodel",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.31.0",
+      "toolsId": "943b3793-3be5-4c75-b955-26ce3cd721a8"
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": false,
+    "dependencies": {
+      "minUI5Version": "1.151.0",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "workloadestimationmodel.i18n.i18n"
+        }
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "transition": "slide",
+        "type": "View",
+        "viewType": "XML",
+        "path": "workloadestimationmodel.view",
+        "async": true,
+        "viewPath": "workloadestimationmodel.view"
+      },
+      "routes": [
+        {
+          "name": "RouteWorkloadEstimationmodel",
+          "pattern": ":?query:",
+          "target": [
+            "TargetWorkloadEstimationmodel"
+          ]
+        }
+      ],
+      "targets": {
+        "TargetWorkloadEstimationmodel": {
+          "id": "WorkloadEstimationmodel",
+          "name": "WorkloadEstimationmodel"
+        }
+      }
+    },
+    "rootView": {
+      "viewName": "workloadestimationmodel.view.App",
+      "type": "XML",
+      "id": "App",
+      "async": true
+    }
+  }
+}

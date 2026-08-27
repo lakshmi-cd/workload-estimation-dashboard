@@ -1,0 +1,16 @@
+{
+  "Sizes": [
+    { "SizeCategory": "XS", "GenericDocumentation": 0.50, "PerStation": 0.25, "ReleaseAfterMAD": 0.10, "InfraPreparation": 2.00, "ReviewRelease": 1.00, "TotalDays": 4.00, "TotalHours": 47 },
+    { "SizeCategory": "S", "GenericDocumentation": 1.00, "PerStation": 0.25, "ReleaseAfterMAD": 0.10, "InfraPreparation": 3.00, "ReviewRelease": 2.00, "TotalDays": 7.00, "TotalHours": 75 },
+    { "SizeCategory": "M", "GenericDocumentation": 1.00, "PerStation": 0.50, "ReleaseAfterMAD": 0.10, "InfraPreparation": 5.00, "ReviewRelease": 2.00, "TotalDays": 9.00, "TotalHours": 109 },
+    { "SizeCategory": "L", "GenericDocumentation": 2.00, "PerStation": 1.00, "ReleaseAfterMAD": 0.25, "InfraPreparation": 8.00, "ReviewRelease": 3.00, "TotalDays": 15.00, "TotalHours": 178 },
+    { "SizeCategory": "XL", "GenericDocumentation": 2.00, "PerStation": 1.00, "ReleaseAfterMAD": 0.25, "InfraPreparation": 12.00, "ReviewRelease": 5.00, "TotalDays": 21.00, "TotalHours": 258 }
+  ],
+  "SizeLogic": [
+    { "SizeCategory": "XS", "SwitchRange": "Sw ≤ 4" },
+    { "SizeCategory": "S", "SwitchRange": "4 ≤ Sw < 6" },
+    { "SizeCategory": "M", "SwitchRange": "6 ≤ Sw < 10" },
+    { "SizeCategory": "L", "SwitchRange": "10 ≤ Sw < 20" },
+    { "SizeCategory": "XL", "SwitchRange": "Sw ≥ 20" }
+  ]
+}
